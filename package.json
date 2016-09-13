@@ -13,8 +13,7 @@
   },
   "scripts": {
     "lint": "eslint lib/*.js test/*.js example/main.js index.js",
-    "test-local": "npm run lint && zuul --local -- test/media-query-facade.test.js",
-    "test": "npm run lint && zuul -- test/media-query-facade.test.js",
+    "test": "npm run lint && karma start",
     "example": "browserify example/main.js > example/bundle.js && opener example/index.html"
   },
   "keywords": [
