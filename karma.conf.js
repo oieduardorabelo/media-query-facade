@@ -11,9 +11,10 @@ module.exports = (config) => {
       'lib/**/*.js': ['browserify', 'coverage'],
       'test/**/*.js': ['browserify'],
     },
-    reporters: ['progress', 'coverage'],
+    reporters: ['dots', 'coverage'],
     browserify: {
       debug: true,
+      transform: ['babelify'],
     },
     customLaunchers: {
       Chrome_travis_ci: {

@@ -14,7 +14,7 @@
   "scripts": {
     "lint": "eslint lib/*.js test/*.js example/main.js index.js",
     "test": "npm run lint && karma start",
-    "example": "browserify example/main.js > example/bundle.js && opener example/index.html"
+    "example": "browserify example/main.js > example/bundle.js -t [ babelify ] && opener example/index.html"
   },
   "keywords": [
     "media",
@@ -27,6 +27,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "babel-preset-es2015": "6.14.0",
+    "babelify": "7.3.0",
     "browserify": "^13.0.0",
     "eslint": "3.5.0",
     "eslint-config-airbnb": "11.1.0",
