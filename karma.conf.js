@@ -1,5 +1,5 @@
 module.exports = (config) => {
-  config.set({
+  const karmaConfig = {
     browsers: ['Chrome'],
     singleRun: true,
     frameworks: ['browserify', 'tap'],
@@ -11,5 +11,17 @@ module.exports = (config) => {
     browserify: {
       debug: true,
     },
-  });
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox'],
+      },
+    },
+  };
+
+  if (process.env.TRAVIS) {
+    karmaConfig.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(karmaConfig);
 };
