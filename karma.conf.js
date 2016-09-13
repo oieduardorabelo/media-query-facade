@@ -3,11 +3,15 @@ module.exports = (config) => {
     browsers: ['Chrome'],
     singleRun: true,
     frameworks: ['browserify', 'tap'],
-    files: ['test/**/*.js'],
+    files: [
+      'lib/**/*.js',
+      'test/**/*.js',
+    ],
     preprocessors: {
+      'lib/**/*.js': ['browserify', 'coverage'],
       'test/**/*.js': ['browserify'],
     },
-    reporters: ['dots'],
+    reporters: ['progress', 'coverage'],
     browserify: {
       debug: true,
     },
@@ -16,6 +20,9 @@ module.exports = (config) => {
         base: 'Chrome',
         flags: ['--no-sandbox'],
       },
+    },
+    coverageReporter: {
+      type: 'text',
     },
   };
 
